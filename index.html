@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meena Kumari • Vedic Astrologer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
+        :root {
+            --primary: #2C3E50;
+            --accent: #E67E22;
+            --text: #2C3E50;
+            --light: #ECF0F1;
+            --dark: #2C3E50;
+            --gradient: linear-gradient(135deg, #2C3E50, #3498DB);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #fafafa;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .hero {
+            height: 100vh;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/api/placeholder/1920/1080') center/cover;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .zodiac-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .zodiac-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .zodiac-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .zodiac-symbol {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .services {
+            background: var(--light);
+            padding: 6rem 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .zodiac-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Meena Kumari</h1>
+            <p>Vedic Astrologer & Spiritual Guide</p>
+            <a href="#book" class="btn">Book a Consultation</a>
+        </div>
+    </section>
+
+    <section id="horoscope">
+        <div class="zodiac-grid">
+            <div class="zodiac-card" data-sign="aries">
+                <div class="zodiac-symbol">♈</div>
+                <h3>Aries</h3>
+            </div>
+            <div class="zodiac-card" data-sign="taurus">
+                <div class="zodiac-symbol">♉</div>
+                <h3>Taurus</h3>
+            </div>
+            <div class="zodiac-card" data-sign="gemini">
+                <div class="zodiac-symbol">♊</div>
+                <h3>Gemini</h3>
+            </div>
+            <div class="zodiac-card" data-sign="cancer">
+                <div class="zodiac-symbol">♋</div>
+                <h3>Cancer</h3>
+            </div>
+            <div class="zodiac-card" data-sign="leo">
+                <div class="zodiac-symbol">♌</div>
+                <h3>Leo</h3>
+            </div>
+            <div class="zodiac-card" data-sign="virgo">
+                <div class="zodiac-symbol">♍</div>
+                <h3>Virgo</h3>
+            </div>
+            <div class="zodiac-card" data-sign="libra">
+                <div class="zodiac-symbol">♎</div>
+                <h3>Libra</h3>
+            </div>
+            <div class="zodiac-card" data-sign="scorpio">
+                <div class="zodiac-symbol">♏</div>
+                <h3>Scorpio</h3>
+            </div>
+            <div class="zodiac-card" data-sign="sagittarius">
+                <div class="zodiac-symbol">♐</div>
+                <h3>Sagittarius</h3>
+            </div>
+            <div class="zodiac-card" data-sign="capricorn">
+                <div class="zodiac-symbol">♑</div>
+                <h3>Capricorn</h3>
+            </div>
+            <div class="zodiac-card" data-sign="aquarius">
+                <div class="zodiac-symbol">♒</div>
+                <h3>Aquarius</h3>
+            </div>
+            <div class="zodiac-card" data-sign="pisces">
+                <div class="zodiac-symbol">♓</div>
+                <h3>Pisces</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Personal Consultation</h3>
+                <p>One-on-one astrology readings tailored to your needs</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Vastu & Feng Shui</h3>
+                <p>Harmonize your space with ancient wisdom</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Relationship Reading</h3>
+                <p>Understanding compatibility and life partnerships</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="horoscopeModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn">&times;</button>
+            <h3 id="horoscopeTitle"></h3>
+            <p id="horoscopeContent"></p>
+        </div>
+    </div>
+
+    <script>
+        const horoscopes = {
+            'aries': "Your natural leadership qualities shine today. Trust your instincts and take bold steps forward.",
+            'taurus': "Focus on practical matters and nurture your connections with loved ones today.",
+            'gemini': "Communication flows easily today. Share your ideas and listen to others' perspectives.",
+            'cancer': "Your intuition is particularly strong. Trust your inner guidance in making decisions.",
+            'leo': "Creative energy surrounds you. Express yourself freely and inspire others.",
+            'virgo': "Pay attention to details but don't lose sight of the bigger picture.",
+            'libra': "Seek balance in all things today. Harmonious relationships bring joy.",
+            'scorpio': "Trust your instincts and delve deep into matters that intrigue you.",
+            'sagittarius': "Adventure calls! Explore new possibilities and expand your horizons.",
+            'capricorn': "Focus on your goals while maintaining flexibility in your approach.",
+            'aquarius': "Your innovative ideas can make a real difference today.",
+            'pisces': "Let your imagination guide you while keeping your feet on the ground."
+        };
+
+        document.querySelectorAll('.zodiac-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const sign = this.dataset.sign;
+                const modal = document.getElementById('horoscopeModal');
+                const title = document.getElementById('horoscopeTitle');
+                const content = document.getElementById('horoscopeContent');
+                
+                title.textContent = sign.charAt(0).toUpperCase() + sign.slice(1) + ' Horoscope';
+                content.textContent = horoscopes[sign];
+                modal.style.display = 'flex';
+            });
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('horoscopeModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('horoscopeModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
